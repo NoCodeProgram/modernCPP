@@ -2,7 +2,9 @@
 #include <chrono>
 #include <thread>
 
-void function()
+
+//argument
+void function(int a, int &b)
 {
 	std::cout << "functionThread:"<<  std::endl;
 	while(1)
@@ -23,17 +25,19 @@ int main()
 
 	
 
-	// t1.detach(); //throw std::terminate
 	t1.join();
-	//t1.join() //multiple time, throw system error
-	
+
 	std::cout << "main thread finish" << std::endl;
 
 }
-//order changes
-//the definition of joinable thread., https://en.cppreference.com/w/cpp/thread/thread/joinable
-//thread must be joined or detached.
-//detach -> stay forever?
-//detach.. wait for a long time
 
-//also undefined behavior without detached/join. don't do it.
+//memory map should be explained too.
+
+//we can pass one arg
+//we can pass multiple args
+
+//think about life time of the args(reference).
+// to explain life time of the arg object, consider string
+
+
+

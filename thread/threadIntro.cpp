@@ -26,6 +26,9 @@ int main()
 	std::cout << "main thread finish" << std::endl;
 
 }
+
+//memory map must be explaned. too!!!
+
 //very simple thread
 //you will not be writing simple thread like this.
 //but for learning, we should do it.
