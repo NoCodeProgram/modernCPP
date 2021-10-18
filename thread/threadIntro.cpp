@@ -9,6 +9,7 @@ void function()
 
 int main()
 {
+	std::cout <<"hardware conc" << std::thread::hardware_concurrency() << std::endl;
 	std::cout << "main thread start" << std::endl;
 
     std::thread t2([]{
@@ -37,3 +38,5 @@ int main()
 //each thread has its own id. but just show and remove it.
 
 //TODO: may add thread number for each function
+//life time is must be considered
+// introductoin to jthread
