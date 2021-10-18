@@ -1,13 +1,17 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <mutex>
 
+std::mutex mtx;
 
 void plus1(int& num)
 {
 	for(int i=0 ; i<10000 ; i++)
-	{		
+	{	
+		mtx.lock();
 		num = num+1;
+		mtx.unlock();
 	}	
 }
 
