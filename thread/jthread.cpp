@@ -29,6 +29,6 @@ int main()
 //more preciesly, jthread work with stop_token
 //the function to be called must have std::stop_token as an argument
 //it must use for its process logic to stop immediately when the signal is on.
-
+//(cooperative interruption)
 //compiler may need to be updated
 //check with C++20 
