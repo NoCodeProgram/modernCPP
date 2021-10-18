@@ -4,12 +4,12 @@
 
 void function()
 {
-	std::cout << "functionThread:"<<  std::endl;
-	while(1)
-	{
-		std::this_thread::sleep_for (std::chrono::seconds(2));
-		std::cout << "functionThread finish"<<  std::endl;
-	}
+	std::cout << "functionThread"<<  std::endl;
+	// while(1)
+	// {
+	// 	std::this_thread::sleep_for (std::chrono::seconds(2));
+	// 	std::cout << "functionThread finish"<<  std::endl;
+	// }
 }
 
 int main()
@@ -24,7 +24,12 @@ int main()
 	
 
 	// t1.detach(); //throw std::terminate
-	t1.join();
+	//thread is an object.
+	//it has a consturctor
+	//it has a destructor
+	//it calles std::terminate()
+	//so it must be joined / or 
+	// t1.join();
 	//t1.join() //multiple time, throw system error
 	
 	std::cout << "main thread finish" << std::endl;
