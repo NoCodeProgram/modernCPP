@@ -9,7 +9,7 @@ void plus1(int& num)
 {
 	for(int i=0 ; i<10000 ; i++)
 	{	
-		mtx.lock();
+		mtx.lock();  //also we have try lock. but what for??
 		num = num+1;
 		mtx.unlock();
 	}	
@@ -33,3 +33,14 @@ int main()
 }
 //race condition, data race,
 //here num is shared between two threads
+
+
+//critical region
+//resource
+//minimize mutex regions
+
+//mutex,recursive_mutex,timed_mutex,recursive_timed_mutex
+//std::shared_timed_mutex , shared_mutex
+//by cppreference
+
+//lock guard followed by exception thrown
