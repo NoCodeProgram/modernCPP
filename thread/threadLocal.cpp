@@ -8,6 +8,10 @@ thread_local std::string s("hello from ");
 //local thread is bound to the thread
 // you can print the memory location of s
 
+//here the question comes
+//static, a thread_local, and a local variable
+// thread_local vs local variable
+// what are the advantages? disadvanttages??
 
 //argument
 void function(int a, int &b)
