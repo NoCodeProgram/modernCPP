@@ -40,3 +40,5 @@ int main()
 //TODO: may add thread number for each function
 //life time is must be considered
 // introductoin to jthread
+// Hot to get function return from thread????
+// What happens when exception thrown???
