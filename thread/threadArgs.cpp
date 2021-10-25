@@ -40,5 +40,12 @@ int main()
 // reference, or objects bound to creator's
 
 
+//when you want to get return val from the functoin
+//pass arg ref to the function or,
+// use lambda
 
 
+int retVal;
+std::thread t1([&retVal](){
+	retVal = function(aa);
+})

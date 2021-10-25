@@ -1,6 +1,6 @@
 #include <iostream>
 #include <thread>
-
+//Any return value from the function is ignored. If the function throws an exception, std::terminate is called. In order to pass return values or exceptions back to the calling thread, std::promise or std::async may be used.
 void function()
 {
 	std::cout << "thread:"<<std::this_thread::get_id() << std::endl;
@@ -41,4 +41,7 @@ int main()
 //life time is must be considered
 // introductoin to jthread
 // Hot to get function return from thread????
-// What happens when exception thrown???
+// What happens when exception thrown??? terminate!
+
+
+//thread is an object, destructor is called when..?
