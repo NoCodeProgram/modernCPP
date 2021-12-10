@@ -9,7 +9,6 @@ void function()
 
 int main()
 {
-	std::cout <<"hardware conc" << std::thread::hardware_concurrency() << std::endl;
 	std::cout << "main thread start" << std::endl;
 
     std::thread t2([]{
@@ -28,20 +27,11 @@ int main()
 
 }
 
-//memory map must be explaned. too!!!
 
-//very simple thread
-//you will not be writing simple thread like this.
-//but for learning, we should do it.
-
-//order changes
-//each thread has its own id. but just show and remove it.
 
 //TODO: may add thread number for each function
 //life time is must be considered
-// introductoin to jthread
+
 // Hot to get function return from thread????
 // What happens when exception thrown??? terminate!
 
-
-//thread is an object, destructor is called when..?
