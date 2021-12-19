@@ -1,34 +1,22 @@
 #include <iostream>
 #include <thread>
 
-void function()
+void fn(std::stop_token stoken)
 {
-	std::cout << "thread:"<< std::endl;
-
+	for(int i=0 ; ; i++)
+	{
+		using namespace std::chrono_literals;
+		std::this_thread::sleep_for(1s);
+		std::cout << i << std::endl;
+		if(stoken.stop_requested())
+		{
+			std::cout << "stop requested" <<std::endl;
+			return;
+		}
+	}
 }
 
 int main()
 {
-	std::cout <<"hardware conc" << std::thread::hardware_concurrency() << std::endl;
-	std::cout << "main thread start" << std::endl;
-
-
-	std::thread t1(function);
-	std::cout << "main thread:" << std::this_thread::get_id()<< std::endl;
-	t1.join(); //join , detach are must
-
-	std::jthread j1(function);
-
-
-	std::cout << "main thread finish" << std::endl;
-
+	std::jthread t1(fn);
 }
-//jthread 
-//automatically, joins on its destructor
-
-//more preciesly, jthread work with stop_token
-//the function to be called must have std::stop_token as an argument
-//it must use for its process logic to stop immediately when the signal is on.
-//(cooperative interruption)
-//compiler may need to be updated
-//check with C++20 

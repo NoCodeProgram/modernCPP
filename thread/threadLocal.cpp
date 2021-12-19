@@ -1,54 +1,31 @@
 #include <iostream>
-#include <chrono>
 #include <thread>
-#include <functional>
 
 
-thread_local std::string s("hello from ");
-//local thread is bound to the thread
-// you can print the memory location of s
 
-//here the question comes
-//static, a thread_local, and a local variable
-// thread_local vs local variable
-// what are the advantages? disadvanttages??
-
-//argument
-void function(int a, int &b)
+void fn()
 {
-	std::cout << "functionThread:"<<  std::endl;
-	a =100;
-	b = 100;
-	std::cout << a << "  " << b << std::endl;
+	static int globalNum = 0;
+	thread_local int tlNum = 0;
 
+	int fnNum = 2;
+
+	std::cout << "globalNum:" << globalNum <<std::endl;
+	std::cout << "thLocalNum:" << tlNum << std::endl;
+
+	globalNum++;
+	tlNum++;
 }
 
 int main()
 {
-	std::cout << "main thread start" << std::endl;
-	int a = 0;
-	int b = 3;
+	using namespace std::chrono_literals;
 
+	int mainNum = 1;
+	std::thread t1(fn);
+	std::this_thread::sleep_for(1s);
+	std::thread t2(fn);
 
-	std::thread t1(function,a,std::ref(b));  //when we pass by ref, we need to add it
-	std::cout << "main thread:" << std::endl;
 	t1.join();
-
-	std::cout << a << "  " << b << std::endl;
-
-	std::cout << "main thread finish" << std::endl;
-
+	t2.join();
 }
-
-//memory map should be explained too.
-
-//we can pass one arg
-//we can pass multiple args
-
-//think about life time of the args(reference).
-// to explain life time of the arg object, consider string
-// reference, or objects bound to creator's
-
-
-
-
